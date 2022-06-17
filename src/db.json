@@ -1,0 +1,13 @@
+{"notes": [
+    {
+        "content": "first note",
+        "important": false,
+        "id": 1
+      },
+    {
+        "content": "welcome to the class",
+          "important": false,
+          "id": 2
+     }
+      
+]}

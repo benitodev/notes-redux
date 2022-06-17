@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import LoginForm from "./components/LoginForm";
+import NewNote from "./components/NewNote";
+import Notes from "./components/Notes";
+import VisibilityFilter from "./components/VisibilityFilter";
+import { initNotes } from "./reducers/noteReducer";
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const initialNotes = async () => {
+      dispatch(initNotes());
+    };
+    initialNotes();
+  }, [dispatch]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NewNote />
+      <LoginForm/>
+      <VisibilityFilter />
+      <Notes />
     </div>
   );
-}
+};
 
 export default App;
